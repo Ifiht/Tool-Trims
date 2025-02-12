@@ -19,22 +19,7 @@ public final class Tool_Trims extends JavaPlugin {
         Instance = this;
         File file = new File(getServer().getWorldContainer().toPath().resolve("world"+File.separator+"datapacks").toString(), "Tool-Trims-DP(plugin).zip");
         if(!file.exists()){
-
-            InputStream in = getResource("Tool-Trims-DP(plugin).zip");
-            if(in == null){
-                getLogger().severe("Missing resource: Datapack");
-                getServer().getPluginManager().disablePlugin(this);
-                return;
-            }
-
-            try {
-                getLogger().info("Installing datapack...");
-                Files.copy(in, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                justInstalledDataPack = true;
-            } catch (IOException e) {
-                getLogger().severe("Unable to install datapack. Please manually install (grab from plugin folder)");
-                saveResource("Tool-Trims-DP(plugin).zip", true);
-            }
+            getLogger().info("Datapack missing. please manually install");
         } else {
             getLogger().info("Datapack found. skipping installation");
         }
